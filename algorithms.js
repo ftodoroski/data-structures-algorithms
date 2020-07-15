@@ -249,3 +249,56 @@ console.log(countUniqueValues([-2, -1, -1, 0, 1])) // 4
 // Tips
 // -  Array is already sorted
 // -  Sometimes the problem gives certain keywords that help you out
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Sliding Window
+// maxSubarraySum
+// 7. Given an array of integers and a number, write a function called maxSubarraySum, which finds the 
+//    maximum sum of a subarray with the length of the number passed to the function 
+
+//    Note that the subarray must consist of consecutive elements from the original array. In the first 
+//    example below, [11, 200, 300] is a subarray of the original array, but [100, 300] is not 
+
+function maxSubarraySum(array, n) {
+    if (array.length < n) return null
+
+    let maxSum = 0
+    for (let i = 0; i < n; i++) maxSum += array[i]
+
+    let p1 = 0
+    let p2 = n
+    let tempSum = maxSum
+
+    while (p2 < array.length) {
+        tempSum = tempSum - array[p1] + array[p2]
+        if (tempSum > maxSum) {
+            maxSum = tempSum
+        }
+
+        p1 += 1
+        p2 += 1
+    }
+
+    return maxSum
+}
+
+console.log(maxSubarraySum([100, 200, 300, 400], 2))                // 700
+console.log(maxSubarraySum([1, 4, 2, 10, 23, 3, 1, 0, 20], 4))      // 39
+console.log(maxSubarraySum([-3, 4, 0, -2, 6, -1], 2))               // 5 
+console.log(maxSubarraySum([3, -2, 7, -4, 1, -1, 4, -2, 1], 2))     // 5
+console.log(maxSubarraySum([2, 3], 3))                              // null
+
+// Tip for sliding window:
+// You were thinking how to sum all those n elements without making a nested array
+// Answer: well you do it by first summing them into a maxSum with its own loop and then doing a tempSum in the main loop
+// Key: The sliding window needs to go to the end(so it needs to transeverse through the whole array) this is the key
+
+// Certain algorithm patterns have certain ways of doing them 
+// For multiple pointer the array needs to be sorted
+// For sliding window the array needs to be transeversed through the end
+
+// I see that often Math.max or Math.min is being used for the sliding window
