@@ -54,3 +54,42 @@ console.log(charCount("hhhhh"))
 console.log(charCount("Hello You beautiful world 1234567"))
 
 // ++count[char] || count[char]++ https://stackoverflow.com/questions/17241877/difference-between-and-1-in-javascript
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Frequency Counter 
+// 3. Write a function called same, which accepts two arrays. The function should return true
+//    if every value in the array has its corresponding value squared in the second array.
+//    The frequency of values must be the same.
+
+function same(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false
+
+    let freq1 = {}
+    let freq2 = {}
+
+    for(let val of arr1) {
+        freq1[val] = (freq1[val] || 0) + 1
+    }
+    for(let val of arr2) {
+        freq2[val] = (freq2[val] || 0) + 1
+    }
+
+    for(let key in freq1) {
+        if (!(key ** 2 in freq2)) {
+            return false
+        }
+        if (freq2[key ** 2] != freq1[key]) {
+            return false
+        }
+    }
+
+    return true
+}
+
+console.log(same([1, 2, 3], [4, 1, 9]) ) // true
+console.log(same([1, 2, 3], [1, 1, 9]))  // false
+console.log(same([1, 2, 1], [4, 4, 1]))  // false
