@@ -30,3 +30,27 @@ console.log(sumOfAllNumbers(5))
 // let t2 = performance.now()
 
 // console.log(`Time Elapesed: ${(t2 - t1) / 1000} seconds`)
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Frequency Counter 
+// 2. Write a function which takes in a string and returns counts of each character in the string
+function charCount(string) {
+    const sanitizedString = string.toLowerCase().split(" ").join("")
+    const count = {}
+
+    for(let char of sanitizedString) {
+        count[char] = ++count[char] || 1
+    }
+
+    return count
+}
+
+console.log(charCount("helloworld"))
+console.log(charCount("hhhhh"))
+console.log(charCount("Hello You beautiful world 1234567"))
+
+// ++count[char] || count[char]++ https://stackoverflow.com/questions/17241877/difference-between-and-1-in-javascript
