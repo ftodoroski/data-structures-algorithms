@@ -191,3 +191,61 @@ console.log(sumZero([1, 2, 3])) // undefined
 
 
 // Keys To Solve: Sorted array matters for the multiple pointer - sort the items if not sorted
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Multiple Pointers
+// countUniqueValues
+// 6. Implement a function called countUniqueValues, which accepts a sorted array, and counts 
+//    the unique values in the array. There can be negative numbers in the array, but it will 
+//    always be sorted. 
+
+// Without a Multiple pointer
+// function countUniqueValues(array) {
+//     let uniqValuesObj = {}
+//     let uniqValues = 0 
+
+//     for(let i = 0; i < array.length; i++) {
+//         let value = array[i]
+
+//         if (!(uniqValuesObj[value])) {
+//             uniqValuesObj[value] = 1
+//             uniqValues += 1
+//         }
+//     }
+
+//     return uniqValues
+// }
+
+function countUniqueValues(array) {
+    if (array.length === 0) return 0
+
+    let currentIndex = 0
+    let scout = 1
+
+    while (scout < array.length) {
+        if (array[currentIndex] < array[scout]) {
+            array[currentIndex + 1] = array[scout]
+            currentIndex += 1
+            scout += 1
+        } else {
+            scout += 1
+        }
+    }
+
+    return currentIndex + 1
+}
+
+
+
+console.log(countUniqueValues([1, 1, 1, 1, 1, 2])) // 2
+console.log(countUniqueValues([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13])) // 7
+console.log(countUniqueValues([])) // 0
+console.log(countUniqueValues([-2, -1, -1, 0, 1])) // 4
+
+// Tips
+// -  Array is already sorted
+// -  Sometimes the problem gives certain keywords that help you out
