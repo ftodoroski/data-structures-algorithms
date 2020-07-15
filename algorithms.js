@@ -147,3 +147,47 @@ console.log(validAnagram("texttwisttime", "timetwisttext"))       // true
 // When would you use the frequency counter
 // Anytime you have multiple pieces of data that you need to compare them
 // if they consist of the same individual pieces of data
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Multiple Pointers  
+// 5. Write a function called sumZero which accepts a sorted array of integers.
+//    The function should find the first pair where the sum is 0. Return an array 
+//    that includes both values the sum to zero or undefined if a pair does not exist
+
+function sumZero(array) {
+    let left = 0
+    let right = array.length - 1
+
+    while (left < right) {
+        let sum = array[left] + array[right]
+        if (sum === 0) {
+            return [array[left], array[right]]
+        } else if (sum > 0) {
+            right--
+        } else {
+            left++
+        }
+    }
+
+    return undefined
+}
+
+
+console.log(sumZero([-3, -2, -1, 0, 1, 2, 3])) // [-3, 3]
+console.log(sumZero([-2, 0, 1, 3])) // undefined
+console.log(sumZero([1, 2, 3])) // undefined
+
+// Brute force:
+//       - O(n^2) Time Complexity
+//       - O(1) Space Complexity
+
+// Efficient
+//       - O(n) Time Complexity
+//       - O(1) Space Complexity
+
+
+// Keys To Solve: Sorted array matters for the multiple pointer - sort the items if not sorted
