@@ -93,3 +93,57 @@ function same(arr1, arr2) {
 console.log(same([1, 2, 3], [4, 1, 9]) ) // true
 console.log(same([1, 2, 3], [1, 1, 9]))  // false
 console.log(same([1, 2, 1], [4, 4, 1]))  // false
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Frequency Counter 
+// 4. Given two strings, write a function to determine if the second string is an
+//    anagram of the first. An anagram is a word, phrase, or a name formed by rearranging 
+//    the letters of another, such as cinema formed from iceman
+
+function validAnagram(string1, string2) {
+    if (string1 == string2) return true
+
+    const stringOneFreq = {}
+    const stringTwoFreq = {}
+
+    for(let char of string1) {
+        stringOneFreq[char] = ++stringOneFreq[char] || 1
+    }
+    for(let char of string2) {
+        stringTwoFreq[char] = ++stringTwoFreq[char] || 1
+    }
+
+    for(let key in stringOneFreq) {
+        if (!(key in stringTwoFreq)) {
+            return false
+        }
+        if (stringOneFreq[key] !== stringTwoFreq[key]) {
+            return false
+        }
+    }
+
+    return true
+}
+
+
+console.log(validAnagram("", ""))                                 // true
+console.log(validAnagram("aaz", "zza"))                           // false
+console.log(validAnagram("anagram", "nagaram"))                   // true
+console.log(validAnagram("rat", "car"))                           // false
+console.log(validAnagram("awesome", "awesom"))                    // false
+console.log(validAnagram("qwerty", "qeywrt"))                     // true
+console.log(validAnagram("texttwisttime", "timetwisttext"))       // true
+
+// This is a O(n) and its better then O(n^2)
+// I think time complexity over O(n^2) is bad everythink below is good
+// Its ok if we have multiple for loops on their one
+// But we get into trouble when we do nested loops 
+// 4n cancels out to just n - The trend is still going to be linear 
+
+// When would you use the frequency counter
+// Anytime you have multiple pieces of data that you need to compare them
+// if they consist of the same individual pieces of data
