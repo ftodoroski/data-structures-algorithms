@@ -374,4 +374,23 @@ function search(array, value) {
     return -1
 }
 
-console.log(search([1, 3, 5, 8, 12, 13 ,15, 16, 18, 20, 22, 30, 40, 50, 55, 67], 13))
+console.log(search([1, 3, 5, 8, 12, 13, 15, 16, 18, 20, 22, 30, 40, 50, 55, 67], 13))
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Recursion 
+// 10. This is just a basic way to help you understand recursion by iterating 
+
+function iterate(months) {
+    if (months.length === 0) return;
+
+    console.log(months[0])
+    return iterate(months.slice(1))
+}
+
+
+let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+iterate(months)
