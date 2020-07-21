@@ -526,3 +526,35 @@ const obj = {
 }
 
 console.log(collectStrings(obj)) // ["foo", "bar", "baz"])
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Binary Search 
+// 14. Write a function that accepts a sorted array and a value. Return the index of the target if found else return -1
+// Time Complexity: O(log n)
+// Space Complexity: O(1)
+
+
+function binarySearch(array, target){
+  let left = 0
+  let right = array.length - 1
+
+  while (left <= right) {
+      const middle =  (left + right) / 2
+
+      if (target > array[middle]) {
+          left = middle + 1
+      } else if (target < array[middle]) {
+            right = middle - 1
+      } else {
+          return middle
+      }    
+  }
+
+  return -1
+}
+
+console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 12))
