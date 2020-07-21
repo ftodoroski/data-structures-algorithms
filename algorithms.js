@@ -483,3 +483,46 @@ let obj = {
 
 
 console.log(stringifyNumbers(obj))
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Recursion 
+// collectString
+// 13. Write a function called collectString which accepts an object and returns an array of all the 
+//     values in the object that have a typeof string
+
+function collectStrings(obj) {
+    let collectedStrings = []
+    if (Object.keys(obj).length === 0) return collectedStrings
+
+    for (const key in obj) {
+        if (typeof obj[key] === "string") {
+            collectedStrings.push(obj[key])
+        } else if (typeof obj[key] === "object" && !Array.isArray(obj[key])) {
+            return collectedStrings.concat(collectStrings(obj[key]))
+        }
+    }
+
+    return collectedStrings
+}
+
+const obj = {
+    stuff: "foo",
+    data: {
+        val: {
+            thing: {
+                info: "bar",
+                moreInfo: {
+                    evenMoreInfo: {
+                        weMadeIt: "baz"
+                    }
+                }
+            }
+        }
+    }
+}
+
+console.log(collectStrings(obj)) // ["foo", "bar", "baz"])
