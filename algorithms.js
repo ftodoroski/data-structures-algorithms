@@ -342,3 +342,36 @@ console.log(maxSubarraySum([], null)) // null
 
 // Tip
 //      - You keep sliding like decreasing in the back and increasing at the front the subarray
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Divide and Conquer
+// search
+// 9. Given a sorted array of integers, write a function called search, that
+//    accepts a value and an array. Return the index where the value passed to the function 
+//    is located. If the value is not found, return -1
+
+function search(array, value) {
+    let min = 0 
+    let max = array.length - 1
+
+    while (min <= max) {
+        let middle = Math.floor((min + max) / 2)
+        let currentElement = array[middle]
+
+        if (array[middle] < value) {
+            min = middle + 1
+        } else if (array[middle] > value) {
+            max = middle - 1
+        } else {
+            return middle
+        }
+    }
+
+    return -1
+}
+
+console.log(search([1, 3, 5, 8, 12, 13 ,15, 16, 18, 20, 22, 30, 40, 50, 55, 67], 13))
