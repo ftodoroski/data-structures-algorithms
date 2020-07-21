@@ -566,7 +566,7 @@ console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 12
 
 // ******************************************************************************************************************************************************************
 // Bubble Sort 
-// 14. Implement bubble sort 
+// 15. Implement bubble sort 
 // Time Complexity: O(n^2)
 // ascending version
 
@@ -594,3 +594,36 @@ function bubbleSort(array) {
 console.log(bubbleSort([29, 10, 14, 30, 37, 14, 18]))
 console.log(bubbleSort([37, 45, 29, 8]))
 console.log(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7]))
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Selection Sort
+// 16. Implement selection sort
+// Time Complexity: O(n^2)
+
+function selectionSort(array) {
+    for (let i = 0; i < array.length; i++) {
+        let lowest = i
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[j] < array[lowest]) {
+                lowest = j
+            }
+        }
+
+        if (i !== lowest) {
+            let temp = array[i]
+            array[i] = array[lowest]
+            array[lowest] = temp
+        }
+    }
+
+    return array
+}
+
+
+console.log(selectionSort([5, 3, 4, 1, 2]))
+console.log(selectionSort([10, 4, 5, 1, 8, 9]))
+console.log(selectionSort([0, 2, 34, 22, 10, 19, 17]))
