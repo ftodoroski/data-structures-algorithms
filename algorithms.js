@@ -558,3 +558,39 @@ function binarySearch(array, target){
 }
 
 console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 12))
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Bubble Sort 
+// 14. Implement bubble sort 
+// Time Complexity: O(n^2)
+// ascending version
+
+function bubbleSort(array) {
+    let iteration = true
+    while(iteration) {
+        iteration = false
+        for(let i = 0; i < array.length - 1; i++) {
+            let current = array[i]
+            let next = array[i + 1]
+            console.log(array)
+            if (current > next) {
+                array[i] = next
+                array[i + 1] = current
+                iteration = true
+            }
+        }
+
+        if(iteration) break
+    }
+
+    return array
+}
+
+console.log(bubbleSort([29, 10, 14, 30, 37, 14, 18]))
+console.log(bubbleSort([37, 45, 29, 8]))
+console.log(bubbleSort([8, 1, 2, 3, 4, 5, 6, 7]))
