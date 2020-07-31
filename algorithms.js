@@ -813,3 +813,67 @@ console.log(getDigit(12345, 3)) // 4
 console.log(digitCount(0))
 console.log(mostDigits([1, 22, 33, 444, 532233]))
 console.log(radix([23,345,5467,12,2345,9852]))
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Singly Linked List
+// 21. Implement a Singly Linked List
+
+class Node {
+    constructor(value) {
+        this.value = value
+        this.next = null
+    }
+}
+
+class SinglyLinkedList {
+    constructor() {
+        this.head = null
+        this.tail = null
+        this.length = 0
+    }
+
+    push(value) {
+      let newNode = new Node(value)
+      if (!(this.head)) {
+        this.head = newNode
+        this.tail = this.head
+      } else {
+          this.tail.next = newNode
+          this.tail = newNode
+      }
+      this.length += 1
+      return this
+    }
+
+    pop() {
+        if (!(this.length)) return undefined 
+
+        let node = this.head
+        let newTail = node
+        while (node.next) {
+            newTail = node
+            node = node.next
+        }
+        this.tail = newTail
+        this.tail.next = null
+        this.length -= 1
+        if (this.length === 0) {
+            this.head = null
+            this.tail = null
+        }
+
+        return node
+    }
+}
+
+let s1 = new SinglyLinkedList()
+s1.push(1)
+s1.push(2)
+s1.push(3)
+s1.push(4)
+s1.reverse()
+console.log(s1.print());
