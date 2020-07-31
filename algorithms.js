@@ -717,7 +717,7 @@ console.log(mergeTwoSortedArrays([1, 100, 350], [12, 114, 299, 1100]))
 
 // ******************************************************************************************************************************************************************
 // Quick Sort
-// 17. Implement quick sort
+// 19. Implement quick sort
 
 // https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/learn/lecture/11072078#questions/10592084
 // Pivot Helper 
@@ -757,3 +757,59 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 }
 
 console.log(quickSort([100, -3, 2, 4, 6, 9, 1, 2, 5, 3, 23]))
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Radix Sort
+// 20. Implement radix sort
+
+// Get the place of a number
+function getDigit(num, place) {
+    let reverseNum = num.toString().split("").reverse().join("")
+    if (place >= reverseNum.length) return 0
+
+    return parseInt(reverseNum[place])
+}
+
+function digitCount(num) {
+    return num.toString().length
+}
+
+function mostDigits(nums) {
+    let max = 0
+    for (let i = 0; i < nums.length; i++) {
+        const num = nums[i]
+        max = Math.max(max, digitCount(num))
+    }
+
+    return max
+}
+
+function radix(nums) {
+    let longest = mostDigits(nums)
+
+    for (let i = 0; i < longest; i++) {
+        let bucket = Array.from({length: 10}, () => [])
+
+        for (let j = 0; j < nums.length; j++) {
+            const num = nums[j];
+            const digit = getDigit(num, i)
+
+            bucket[digit].push(num)
+        }
+
+        nums = [].concat(...bucket)
+    }
+
+    return nums
+}
+
+console.log(getDigit(12345, 0)) // 5
+console.log(getDigit(12345, 1)) // 4
+console.log(getDigit(12345, 3)) // 4
+console.log(digitCount(0))
+console.log(mostDigits([1, 22, 33, 444, 532233]))
+console.log(radix([23,345,5467,12,2345,9852]))
