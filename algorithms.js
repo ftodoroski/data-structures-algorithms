@@ -710,3 +710,50 @@ function mergeTwoSortedArrays(arr1, arr2) {
 console.log(mergeSort([90, 5, 32, 11, 1, 35, 4000, 65, 11]));
 console.log(mergeTwoSortedArrays([1, 10, 50], [2, 14, 99, 100]))
 console.log(mergeTwoSortedArrays([1, 100, 350], [12, 114, 299, 1100]))
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Quick Sort
+// 17. Implement quick sort
+
+// https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/learn/lecture/11072078#questions/10592084
+// Pivot Helper 
+//     - Needs to return the index of the pivot point
+function pivot(arr, start = 0, end = arr.length + 1) {
+    function swap(array, i, j) {
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    let pivot = arr[start];
+    let swapIdx = start;
+
+    for (let i = start + 1; i < arr.length; i++) {
+        if (pivot > arr[i]) {
+            swapIdx++;
+            swap(arr, swapIdx, i);
+        }
+    }
+    swap(arr, start, swapIdx);
+    return swapIdx;
+}
+
+console.log(pivot([5, 1, 6, 8, 2, 7, 3, 4]))
+
+// // Quick Sort   
+function quickSort(arr, left = 0, right = arr.length - 1) {
+    if (left < right) {
+        let pivotIndex = pivot(arr, left, right) //3
+        //left
+        quickSort(arr, left, pivotIndex - 1);
+        //right
+        quickSort(arr, pivotIndex + 1, right);
+    }
+    return arr;
+}
+
+console.log(quickSort([100, -3, 2, 4, 6, 9, 1, 2, 5, 3, 23]))
