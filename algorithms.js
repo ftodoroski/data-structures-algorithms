@@ -627,3 +627,35 @@ function selectionSort(array) {
 console.log(selectionSort([5, 3, 4, 1, 2]))
 console.log(selectionSort([10, 4, 5, 1, 8, 9]))
 console.log(selectionSort([0, 2, 34, 22, 10, 19, 17]))
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Insertion Sort
+// 17. Implement selection sort
+// Time Complexity: O(n^2)
+
+function insertionSort(array) {
+    for (let i = 1; i < array.length; i++) {
+
+        for (let j = i; j > 0; j--) {
+            if (array[j] < array[j - 1]) {
+                const temp = array[j]
+                array[j] = array[j - 1]
+                array[j - 1] = temp
+            } else {
+                break
+            }   
+        }
+    }
+
+    return array
+}
+
+console.log(insertionSort([2, 1, 9, 76, 4]))
+
+
+// starting with the second element 
+// check if its smaller then the first
