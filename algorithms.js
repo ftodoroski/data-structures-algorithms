@@ -868,6 +868,35 @@ class SinglyLinkedList {
 
         return node
     }
+
+    shift() {
+        if (!(this.length)) return undefined 
+
+        let newHead = this.head.next
+        let prevHead = this.head
+        this.head = newHead
+        prevHead.next = null
+        this.length -= 1
+        if (this.length === 0) {
+            this.tail = null
+        }
+        return prevHead
+    }
+
+    unshift(value) {
+        let node = new Node(value)
+        if (!this.head) {
+            this.head = node 
+            this.tail = node
+            return this
+        }
+
+        let prevHead = this.head
+        this.head = node
+        this.head.next = prevHead
+        this.length += 1
+        return this
+    }
 }
 
 let s1 = new SinglyLinkedList()
