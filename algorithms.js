@@ -659,3 +659,54 @@ console.log(insertionSort([2, 1, 9, 76, 4]))
 
 // starting with the second element 
 // check if its smaller then the first
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Merge Sort
+// 18. Implement merge sort
+
+// Splitting of arrays
+function mergeSort(array) {
+    if (array.length <= 1) return array
+
+    let middle = Math.floor((array.length) / 2)
+    let left = mergeSort(array.slice(0, middle))
+    let right = mergeSort(array.slice(middle))
+
+    return mergeTwoSortedArrays(left, right)
+}
+
+// // Merge Two Sorted Arrays - First Important Step for Merge sort
+function mergeTwoSortedArrays(arr1, arr2) {
+    let sorted = []
+
+    let i = 0
+    let j = 0 
+    while(i < arr1.length && j < arr2.length) {
+        if (arr1[i] < arr2[j]) {
+            sorted.push(arr1[i])
+            i++
+        } else {
+            sorted.push(arr2[j])
+            j++
+        }
+    }
+
+    while (i < arr1.length) {
+        sorted.push(arr1[i])
+        i++
+    }
+    while (j < arr2.length) {
+        sorted.push(arr2[j])
+        j++
+    }
+
+    return sorted
+}
+
+console.log(mergeSort([90, 5, 32, 11, 1, 35, 4000, 65, 11]));
+console.log(mergeTwoSortedArrays([1, 10, 50], [2, 14, 99, 100]))
+console.log(mergeTwoSortedArrays([1, 100, 350], [12, 114, 299, 1100]))
