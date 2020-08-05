@@ -945,7 +945,6 @@ class DoublyLinkedList {
         return this
     }
 
-
     pop() {
         if (this.head === null) return undefined
         let poppedNode = this.tail
@@ -961,7 +960,6 @@ class DoublyLinkedList {
         this.length -= 1
         return poppedNode
     }
-
 
     shift() {
         if (this.length === 0) return undefined
@@ -980,6 +978,21 @@ class DoublyLinkedList {
         return shiftedNode
     }
 
+    unshift(value) {
+        let newNode = new Node(value)
+
+        if (this.length === 0) {
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            this.head.prev = newNode
+            newNode.next = this.head
+            this.head = newNode
+        }
+
+        this.length++
+        return this
+    }
 }
 
 let dll = new DoublyLinkedList()
