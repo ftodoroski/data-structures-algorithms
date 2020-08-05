@@ -1037,6 +1037,22 @@ class DoublyLinkedList {
             return false
         }
     }
+
+    insert(index, value) {
+        if (index < 0 || index >= this.length) return false
+        if (index === 0) return !!this.unshift(value)
+        if (index === this.length - 1) return !!this.push(value)
+        let newNode = new Node(value)
+
+        let beforeNodes = this.get(index - 1)
+        let afterNodes = this.get(index)
+        beforeNodes.next = newNode
+        newNode.prev = beforeNodes
+        newNode.next = afterNodes
+        afterNodes.prev = newNode
+        this.length++
+        return true
+    }
 }
 
 let dll = new DoublyLinkedList()
