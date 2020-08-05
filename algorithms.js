@@ -1068,6 +1068,30 @@ class DoublyLinkedList {
         this.length--
         return removedNode
     }
+
+
+    reverse() {
+        if (!(this.head)) return undefined
+
+        let node = this.head
+        this.head = this.tail
+        this.tail = node
+
+        let counter = 0
+        let prev = null
+        let next
+
+        while (counter < this.length) {
+            next = node.next
+            node.prev = next
+            node.next = prev
+            prev = node
+            node = next
+            counter++
+        }
+
+        return this
+    }
 }
 
 let dll = new DoublyLinkedList()
