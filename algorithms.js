@@ -906,3 +906,61 @@ s1.push(3)
 s1.push(4)
 s1.reverse()
 console.log(s1.print());
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Doubly Linked List
+// 20. Implement a Doubly Linked List
+
+class Node {
+    constructor(value) {
+        this.value = value
+        this.next = null
+        this.prev = null
+    }
+}
+
+class DoublyLinkedList {
+    constructor() {
+        this.head = null
+        this.tail = null
+        this.length = 0
+    }
+
+    push(value) {
+        let newNode = new Node(value)
+        if (this.head === null) {
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            this.tail.next = newNode
+            newNode.prev = this.tail
+            this.tail = newNode
+        }
+
+        this.length++
+        return this
+    }
+
+}
+
+let dll = new DoublyLinkedList()
+dll.push(1)
+dll.push(4)
+dll.push(5)
+dll.push(7)
+dll.push(9)
+dll.push(17)
+dll.push(21)
+dll.push(26)
+dll.push(29)
+dll.push(30)
+dll.push(32)
+dll.push(33)
+dll.push(39)
+dll.push(41)
+dll.reverse()
+
