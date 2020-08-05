@@ -993,6 +993,38 @@ class DoublyLinkedList {
         this.length++
         return this
     }
+
+    get(index) {
+        if (index < 0 || index >= this.length) return null
+
+        let halfLength = Math.floor(this.length / 2)
+        if (index <= halfLength) {
+
+            let counter = 0
+            let current = this.head
+            while (current) {
+                if (counter === index) {
+                    return current
+                }
+
+                counter += 1
+                current = current.next
+            }
+        } else {
+
+            let counter = this.length - 1
+            let current = this.tail
+            while (counter) {
+                if (counter === index) {
+                    return current
+                }
+
+                counter -= 1
+                current = current.prev
+            }
+
+        }
+    }
 }
 
 let dll = new DoublyLinkedList()
