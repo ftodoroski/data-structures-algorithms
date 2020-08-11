@@ -1159,6 +1159,19 @@ class Node {
         this.next = null
         this.prev = null
     }
+
+    push(value) {
+        var newNode = new Node(value);
+        if (!this.first) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            var temp = this.first;
+            this.first = newNode;
+            this.first.next = temp;
+        }
+        return ++this.size;
+    }
 }
 
 class Stack {
