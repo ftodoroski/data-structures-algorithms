@@ -1183,6 +1183,11 @@ class Node {
         this.size--;
         return temp.value;
     }
+
+    peek() {
+        if (!(this.size)) return null
+        return this.first
+    }
 }
 
 class Stack {
