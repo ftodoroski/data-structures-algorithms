@@ -1159,6 +1159,14 @@ class Node {
         this.next = null
         this.prev = null
     }
+}
+
+class Stack {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
 
     push(value) {
         var newNode = new Node(value);
@@ -1188,15 +1196,6 @@ class Node {
         if (!(this.size)) return null
         return this.first
     }
-}
-
-class Stack {
-    constructor() {
-        this.first = null;
-        this.last = null;
-        this.size = 0;
-    }
-
 }
 
 let stack = new Stack()
