@@ -1144,3 +1144,31 @@ dll.push(39)
 dll.push(41)
 dll.reverse()
 
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Stack Singly Linked List
+// 21. Implement a Stack Linked List
+
+class Node {
+    constructor(value) {
+        this.value = value
+        this.next = null
+        this.prev = null
+    }
+}
+
+class Stack {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+
+}
+
+let stack = new Stack()
+console.log(stack)
