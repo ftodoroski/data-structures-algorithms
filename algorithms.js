@@ -1200,3 +1200,28 @@ class Stack {
 
 let stack = new Stack()
 console.log(stack)
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Queue Singly Linked List
+// 22. Implement a Queue Singly Linked List
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Queue {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+
+}
