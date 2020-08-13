@@ -1247,3 +1247,34 @@ class Queue {
         return temp.value;
     }
 }
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// check if a sequence of different types of brackets (or parentheses) is correctly balanced
+//“{()[{({})[]()}]}([])”
+
+function isBalanced(parentheses) {
+    const sequence = []
+
+    for (const paren of parentheses) {        if (sequence[sequence.length - 1] === "{" && paren === "}") {
+            sequence.pop()
+        } else if (sequence[sequence.length - 1] === "[" && paren === "]") {
+            sequence.pop()
+        } else if (sequence[sequence.length - 1] === "(" && paren === ")") {
+            sequence.pop()
+        } else {
+            sequence.push(paren)
+        }
+    }
+
+    return !sequence.length
+}
+
+console.log(isBalanced("{()[{({})[]()}]}([])"))
+console.log(isBalanced("{{}(}"))
+
+// O(n) Time | O(n) Space
