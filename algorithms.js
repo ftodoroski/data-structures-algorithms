@@ -1405,3 +1405,50 @@ function shiftAndUpdate(array, num, idx) {
 
 // O(n) time | O(1) space
 
+
+
+
+
+// ******************************************************************************************************************************************************************
+// --- Directions
+// Check to see if two provided strings are anagrams of eachother.
+// One string is an anagram of another if it uses the same characters
+// in the same quantity. Only consider characters, not spaces
+// or punctuation.  Consider capital letters to be the same as lower case
+// --- Examples
+//   anagrams('rail safety', 'fairy tales') --> True
+//   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
+//   anagrams('Hi there', 'Bye there') --> False
+
+function getCharFrequency(string) {
+    const punctuations = { ".": true, "?": true, "!": true, ",": true }
+    let result = {}
+
+    for (const char of string) {
+        if (result[char.toLowerCase()] && !(punctuations[char])) {
+            result[char.toLowerCase()]++
+        } else if (!(punctuations[char])) {
+            result[char.toLowerCase()] = 1
+        }
+    }
+
+    return result
+}
+
+function anagrams(stringA, stringB) {
+    let freqOneObj = getCharFrequency(stringA)
+    let freqTwoObj = getCharFrequency(stringB)
+
+    if (Object.keys(freqOneObj).length !== Object.keys(freqTwoObj).length) return false
+
+    for (const key in freqOneObj) {
+        if (freqOneObj[key] !== freqTwoObj[key]) {
+            return false
+        }
+    }
+
+    return true
+}
+
+
+// Time Complexity - O(n)
