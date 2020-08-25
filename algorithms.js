@@ -1623,6 +1623,33 @@ class BinarySearchTree {
     constructor() {
         this.root = null
     }
+
+    insert(value) {
+        let newNode = new Node(value)
+        if (!(this.root)) {
+            this.root = newNode
+        } else {
+
+            let current = this.root
+            while (true) {
+                if (newNode.value < current.value && current.left === null) {
+                    current.left = newNode
+                    break
+                } else if (newNode.value > current.value && current.right === null) {
+                    current.right = newNode
+                    break
+                } else if (newNode.value < current.value) {
+                    current = current.left
+                } else if (newNode.value > current.value) {
+                    current = current.right
+                } else {
+                    break
+                }
+            }
+        }
+
+        return this
+    }
 }
 
 let bts = new BinarySearchTree()
