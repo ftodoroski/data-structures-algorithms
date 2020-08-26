@@ -1650,6 +1650,24 @@ class BinarySearchTree {
 
         return this
     }
+
+    find(value) {
+        if (!(this.root)) return undefined
+
+        let current = this.root
+        while (true) {
+            if (current.value === value) {
+                return current
+            } else if (value < current.value && current.left !== null) {
+                current = current.left
+            } else if (value > current.value && current.right !== null) {
+                current = current.right
+            } else {
+                return undefined
+            }
+
+        }
+    }
 }
 
 let bts = new BinarySearchTree()
