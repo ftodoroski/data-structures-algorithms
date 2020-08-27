@@ -1671,3 +1671,50 @@ class BinarySearchTree {
 }
 
 let bts = new BinarySearchTree()
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Breath First Search
+// 24. Implement a breath first serch
+
+class QNode {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Node {
+    constructor(value) {
+        this.value = value
+        this.right = null
+        this.left = null
+    }
+}
+
+class Queue {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+}
+
+class BinarySearchTree {
+    constructor() {
+        this.root = null
+    }
+}
+
+let bst = new BinarySearchTree()
+bst.insert(25)
+bst.insert(32)
+bst.insert(17)
+bst.insert(39)
+bst.insert(30)
+bst.insert(23)
+bst.insert(14)
+console.log(bst.BFS())
