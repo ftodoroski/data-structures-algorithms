@@ -1776,6 +1776,22 @@ class BinarySearchTree {
 
         }
     }
+
+    BFS() {
+        let queue = new Queue()
+        queue.enqueue(this.root) 
+        let visited = []
+
+        while(queue.size) {
+            visited.push(queue.first.value.value)
+
+            if (queue.first.value.left) queue.enqueue(queue.first.value.left)
+            if (queue.first.value.right) queue.enqueue(queue.first.value.right)
+            queue.dequeue()
+        }
+
+        return queue
+    }
 }
 
 let bst = new BinarySearchTree()
