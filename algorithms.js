@@ -1862,3 +1862,39 @@ bst.insert(39)
 bst.insert(30)
 bst.insert(23)
 bst.insert(14)
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Depth First Search - PostOrder
+// 26. Implement a depth first search - PostOrder
+
+class Node {
+    constructor(value) {
+        this.value = value
+        this.right = null
+        this.left = null
+    }
+}
+
+class BinarySearchTree {
+    constructor() {
+        this.root = null
+    }
+}
+
+
+let bst = new BinarySearchTree()
+bst.insert(25)
+bst.insert(32)
+bst.insert(17)
+bst.insert(39)
+bst.insert(30)
+bst.insert(23)
+bst.insert(14)
+
+
+Visit, Left(Recursively), Right(Recursively)
