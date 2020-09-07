@@ -1955,4 +1955,53 @@ bst.insert(23)
 bst.insert(14)
 
 
-Visit, Left(Recursively), Right(Recursively)
+// Visit, Left(Recursively), Right(Recursively)
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// smallestDifference
+// 26. Write a function that takes intwo non-empty arraus of integers, finds the pair of numbers(one from each array) 
+//     whose absolute difference is closest to zero, and returns an array containing these two numbersm with the 
+//     numbers from the first array in the first position.
+
+//     You can assume that there will be one pair of numbers with the smallest difference. 
+
+// arrayOne = [-1, 5, 10, 20, 28, 3]
+// arraytwo = [26, 134, 135, 15, 17]
+
+function smallestDifference(arrayOne, arrayTwo) {
+    arrayOne.sort((a, b) => a - b)
+    arrayTwo.sort((a, b) => a - b)
+
+    let idxOne = 0
+    let idxTwo = 0
+    let currentMin = Infinity
+    let currentPair = []
+
+    while (idxOne < arrayOne.length && idxTwo < arrayTwo.length) {
+
+        let firstNum = arrayOne[idxOne]
+        let secondNum = arrayTwo[idxTwo]
+        let currentDif = Math.abs(firstNum - secondNum)
+
+        if (currentDif === 0) {
+            return [arrayOne[idxOne], arrayTwo[idxTwo]]
+        } else if (currentMin > currentDif) {
+            currentMin = currentDif
+            currentPair = [arrayOne[idxOne], arrayTwo[idxTwo]]
+        }
+        if (firstNum > secondNum) {
+            idxTwo++
+        } else if (secondNum > firstNum) {
+            idxOne++
+        }
+    }
+
+    return currentPair
+}
+
+console.log(smallestDifference([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
