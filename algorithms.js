@@ -2005,3 +2005,50 @@ function smallestDifference(arrayOne, arrayTwo) {
 }
 
 console.log(smallestDifference([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// moveElementToEnd
+// 304. You're given an array of integers and an integer. Write a function that moves all the instances 
+//      of that integer in the array to the end if the array and returns the array
+
+//      The function should perform this in place(i.e it should mutate the original array) and it does't 
+//      need to maintain the order of the other integers 
+
+// array = [2, 1, 2, 2, 2, 3, 4, 2]
+// toMove = 2
+
+function moveElementToEnd(array, toMove) {
+    let left = 0
+    let right = array.length - 1
+    while (left < right) {
+        let leftNum = array[left]
+        let rightNum = array[right]
+
+        if (leftNum === toMove && rightNum === toMove) {
+            right--
+        } else if (leftNum === toMove && rightNum !== toMove) {
+            swap(left, right, array)
+            right--
+        } else if (leftNum !== toMove && rightNum !== toMove) {
+            left++
+        } else if (leftNum !== toMove && rightNum === toMove) {
+            left++
+        }
+    }
+
+    return array
+}
+
+function swap(left, right, array) {
+    let temp = array[left]
+    array[left] = array[right]
+    array[right] = temp
+}
+
+
+console.log(moveElementToEnd([2, 1, 2, 2, 2, 3, 4, 2], 2))
