@@ -2052,3 +2052,47 @@ function swap(left, right, array) {
 
 
 console.log(moveElementToEnd([2, 1, 2, 2, 2, 3, 4, 2], 2))
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// isMonotonic
+// 304. Write a function that takes in an array of integers and returns a boolean representing wheather the array is monotonic.
+//      An array is said to be monotonic if its elements, fro left to right, are entirely non-increasing or non-decreasing.
+
+// Note that empty arrays and arrays of one element are monotonic 
+
+
+function isMonotonic(array) {
+    if (array.length < 2) return true
+
+    let trend
+
+    if (array[0] <= array[1] && Math.sign(array[0]) !== -1) trend = "+"
+    else trend = "-"
+
+    let current = 1
+    let next = 2
+    while (next < array.length) {
+        let currentNum = array[current]
+        let nextNum = array[next]
+
+        console.log(currentNum, nextNum)
+        if (trend === "+" && currentNum <= nextNum) {
+            current++
+            next++
+        } else if (trend === "-" && currentNum >= nextNum) {
+            current++
+            next++
+        } else {
+            return false
+        }
+    }
+
+    return true
+}
+
+console.log(isMonotonic([-1, -5, -10, -1100, -1100, -1101, -1102, -9001]))
