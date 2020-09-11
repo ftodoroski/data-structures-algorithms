@@ -2096,3 +2096,35 @@ function isMonotonic(array) {
 }
 
 console.log(isMonotonic([-1, -5, -10, -1100, -1100, -1101, -1102, -9001]))
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Re-order data in a log file
+// https://leetcode.com/problems/reorder-data-in-log-files/
+// https://leetcode.com/hongbo-miao/
+
+const reorderLogFiles = (logs) => {
+    const body = s => s.slice(s.indexOf(' ') + 1);
+    const isNum = id => /\d/.test(id);
+
+    const compare = (a, b) => {
+        const n = body(a).localeCompare(body(b));
+        if (n !== 0) return n;
+        return a.localeCompare(b);
+    };
+
+    const digitLogs = [];
+    const letterLogs = [];
+    for (const log of logs) {
+        if (isNum(body(log))) digitLogs.push(log);
+        else letterLogs.push(log);
+    }
+    return [...letterLogs.sort(compare), ...digitLogs];
+};
+
+// Test Case 
+reorderLogFiles(["dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero"])
