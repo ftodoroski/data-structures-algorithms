@@ -2239,6 +2239,7 @@ console.log(longestPeak([1, 2, 3, 3, 4, 0, 10, 6, 5, -1, -3, 2, 3]))
 
 
 
+
 // ******************************************************************************************************************************************************************
 // Three Number Sum 
 //  Write a function that takes in a non - empty array of distinct integers and an
@@ -2275,4 +2276,39 @@ function threeNumberSum(array, targetSum) {
     }
 
     return triplets
+}
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Caesar Cipher Encryptor
+
+// Given a non - empty string of lowercase letters and a non - negative integer
+// representing a key, write a function that returns a new string obtained by
+// shifting every letter in the input string by k positions in the alphabet,
+// where k is the key.
+
+// Note that letters should "wrap" around the alphabet; in other words, the
+// letter z shifting by one returns the letter a
+
+// string = "xyz"
+// key = 2
+
+function caesarCipherEncryptor(string, key) {
+    const newLetters = []
+    const newKey = key % 26
+    for (const letter of string) {
+        newLetters.push(getNewLetter(letter, newKey))
+    }
+
+    return newLetters.join("")
+}
+
+
+function getNewLetter(letter, key) {
+    const newLetterCode = letter.charCodeAt() + key
+    return newLetterCode <= 122 ? String.fromCharCode(newLetterCode) : String.fromCharCode(96 + (newLetterCode % 122))
 }
