@@ -2312,3 +2312,27 @@ function getNewLetter(letter, key) {
     const newLetterCode = letter.charCodeAt() + key
     return newLetterCode <= 122 ? String.fromCharCode(newLetterCode) : String.fromCharCode(96 + (newLetterCode % 122))
 }
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Palindrome Check
+//  Write a function that takes in a non - empty string and that returns a boolean
+//  representing whether the string is a palindrome.
+
+//  A palindrome is defined as a string that's written the same forward and
+//  backward.Note that single - character strings are palindromes.
+
+// string = "abcdcba"
+
+function isPalindrome(string) {
+    let reversedWord = ""
+    for (let i = string.length - 1; i >= 0; i--) {
+        reversedWord += string[i]
+    }
+
+    return string === reversedWord
+}
