@@ -2319,7 +2319,7 @@ function getNewLetter(letter, key) {
 
 
 // ******************************************************************************************************************************************************************
-// Palindrome Check
+// Palindrome Check 
 //  Write a function that takes in a non - empty string and that returns a boolean
 //  representing whether the string is a palindrome.
 
