@@ -2481,6 +2481,44 @@ class BST {
 
         return false
     }
+
+    remove(value, parentNode = null) {
+        let currentNode = this
+        while (currentNode !== null) {
+            if (value < currentNode.value) {
+                parentNode = currentNode
+                currentNode = currentNode.left
+            } else if (value > currentNode.value) {
+                parentNode = currentNode
+                currentNode = currentNode.right
+            } else {
+                if (currentNode.left !== null && currentNode.right !== null) {
+                    currentNode.value = currentNode.right.getMinValue()
+                    currentNode.right.remove(currentNode.value, currentNode)
+                } else if (parentNode === null) {
+                    if (currentNode.left !== null) {
+                        currentNode.value = currentNode.left.value
+                        currentNode.right = currentNode.left.right
+                        currentNode.left = currentNode.left.left
+                    } else if (currentNode.right !== null) {
+                        currentNode.value = currentNode.right.value
+                        currentNode.left = currentNode.right.left
+                        currentNode.right = currentNode.right.right
+                    } else {
+
+                    }
+                } else if (parentNode.left === currentNode) {
+                    parentNode.left = currentNode.left !== null ? currentNode.left : currentNode.right
+                } else if (parentNode.right === currentNode) {
+                    parentNode.right = currentNode.left !== null ? currentNode.left : currentNode.right
+                }
+
+                break
+            }
+        }
+
+        return this
+    }
 }
 
 let bst = new BST(10)
