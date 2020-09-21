@@ -2519,6 +2519,15 @@ class BST {
 
         return this
     }
+
+    getMinValue() {
+        let currentNode = this
+        while (currentNode.left !== null) {
+            currentNode = currentNode.left
+        }
+
+        return currentNode.value
+    }
 }
 
 let bst = new BST(10)
