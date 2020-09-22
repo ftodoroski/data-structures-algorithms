@@ -2537,3 +2537,35 @@ bst.insert(2)
 bst.insert(6)
 bst.insert(17)
 bst.insert(21)
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Validate BST
+//  Write a function that takes in a potential inavlid Binary Search Tree(BST) and returns a boolean representing wheather the BST is valid. 
+
+//  Each BST node has an integer value, a left child node and a right child node. A node is said to be valid BST node if and only if it 
+//  satisfies the BST property; it's value is strictly greater than the values of every node to it's left; it's value is less than or equal 
+//  to the values of every node to its right; and its children nodes are either valid BST nodes themselves or None/null
+
+class BST {
+    constructor(value) {
+        this.value = value
+        this.left = null
+        this.right = null
+    }
+}
+
+function validateBst(tree) {
+    return validateBstHelper(tree, -Infinity, Infinity)
+}
+
+function validateBstHelper(tree, minValue, maxValue) {
+    if (tree === null) return true
+    if (tree.value < minValue || tree.value >= maxValue) return false
+    const leftIsValid = validateBstHelper(tree.left, minValue, tree.value)
+    return leftIsValid && validateBstHelper(tree.right, tree.value, maxValue)
+}
