@@ -2569,3 +2569,37 @@ function validateBstHelper(tree, minValue, maxValue) {
     const leftIsValid = validateBstHelper(tree.left, minValue, tree.value)
     return leftIsValid && validateBstHelper(tree.right, tree.value, maxValue)
 }
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Ivert a Binary Tree
+//  Write a function that takes in a Binary Tree and inverts it. In other words, the function should swap every left node in the tree for it's corresponding right node.
+
+//  Each BinaryTree node has an integer value, a left child node, and a right child node. 
+//  Children nodes can either be BinaryTree nodes themselves or None / null
+
+function invertBinaryTree(tree) {
+    if (!tree) return
+
+    swapLeftAndRight(tree)
+    invertBinaryTree(tree.left)
+    invertBinaryTree(tree.right)
+}
+
+function swapLeftAndRight(tree) {
+    let tempLeft = tree.left
+    tree.left = tree.right
+    tree.right = tempLeft
+}
+
+class BinaryTree {
+    constructor(value) {
+        this.value = value
+        this.right = null
+        this.left = null
+    }
+}
