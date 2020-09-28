@@ -2702,3 +2702,29 @@ bst.insert(14)
 // bst.insert(3);
 // bst.insert(8);
 // bst.insert(20);
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Binary Heap - MaxBinaryHeap
+// 28. Implement a MaxBinaryHeap
+
+class MaxBinaryHeap {
+    constructor() {
+        this.values = []
+    }
+
+}
+
+
+let mbh = new MaxBinaryHeap()
+mbh.insert(55)
+mbh.insert(39)
+mbh.insert(41)
+mbh.insert(18)
+mbh.insert(27)
+mbh.insert(12)
+mbh.insert(33)
