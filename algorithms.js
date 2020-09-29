@@ -2717,6 +2717,25 @@ class MaxBinaryHeap {
         this.values = []
     }
 
+    insert(value) {
+        this.values.push(value)
+        if (this.values.length > 1) {
+            let i = this.values.length - 1
+            while (i) {
+                let parent = this.values[Math.floor((i - 1) / 2)]
+                if (this.values[i] > parent) {
+                    let temp = parent
+                    this.values[Math.floor((i - 1) / 2)] = this.values[i]
+                    this.values[i] = temp
+                }
+
+                i = Math.floor((i - 1) / 2)
+            }
+        }
+
+        return this
+    }
+
 }
 
 
