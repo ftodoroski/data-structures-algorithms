@@ -2735,7 +2735,34 @@ class MaxBinaryHeap {
 
         return this
     }
+    
+    extractMax() {
+        const max = this.values[0]
+        const end = this.values.pop()
+        this.values[0] = end
 
+        let i = 0
+        while (true) {
+            const parent = this.values[i]
+            const childOne = this.values[Math.floor((2 * i) + 1)]
+            const childTwo = this.values[Math.floor((2 * i) + 2)]
+
+            if (parent < childOne && childOne > childTwo) {
+                this.values[i] = childOne
+                this.values[Math.floor((2 * i) + 1)] = parent
+                i = Math.floor((2 * i) + 1)
+            } else if (parent < childTwo && childOne < childTwo) {
+                this.values[i] = childTwo
+                this.values[Math.floor((2 * i) + 2)] = parent
+                i = Math.floor((2 * i) + 2)
+            } else {
+                break
+            }
+
+        }
+
+        return max
+    }
 }
 
 
