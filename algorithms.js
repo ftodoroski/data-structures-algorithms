@@ -2774,3 +2774,43 @@ mbh.insert(18)
 mbh.insert(27)
 mbh.insert(12)
 mbh.insert(33)
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Binary Heap - Priority Queue
+// 29. Implement a priority queue
+
+class Node {
+    constructor(value, priority) {
+        this.value = value
+        this.priority = priority
+    }
+}
+
+class PriorityQueue {
+    constructor() {
+        this.values = []
+    }
+
+}
+
+
+let pq = new PriorityQueue()
+pq.enqueue("Filip", 3)
+pq.enqueue("Andrej", 1)
+pq.enqueue("Jana", 2)
+pq.enqueue("Cindy", 5)
+pq.enqueue("Melina", 0)
+pq.dequeue()
+console.log(pq.values)
+mbh.insert(55)
+mbh.insert(39)
+mbh.insert(41)
+mbh.insert(18)
+mbh.insert(27)
+mbh.insert(12)
+mbh.insert(33)
