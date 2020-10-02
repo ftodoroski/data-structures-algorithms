@@ -2796,6 +2796,27 @@ class PriorityQueue {
         this.values = []
     }
 
+    enqueue(value, priority) {
+        let newNode = new Node(value, priority)
+
+        this.values.push(newNode)
+        if (this.values.length > 1) {
+            let i = this.values.length - 1
+            while (i) {
+                let parent = this.values[Math.floor((i - 1) / 2)]
+                if (this.values[i].priority < parent.priority) {
+                    let temp = parent
+                    this.values[Math.floor((i - 1) / 2)] = this.values[i]
+                    this.values[i] = temp
+                }
+
+                i = Math.floor((i - 1) / 2)
+            }
+        }
+
+        return this
+    }
+
 }
 
 
