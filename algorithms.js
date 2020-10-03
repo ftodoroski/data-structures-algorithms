@@ -2817,6 +2817,47 @@ class PriorityQueue {
         return this
     }
 
+    dequeue() {
+        if (this.values.length === 0) return undefined
+        if (this.values.length <= 2) return this.values.shift()
+
+        const min = this.values[0]
+        const end = this.values.pop()
+        this.values[0] = end
+
+        let i = 0
+        while (true) {
+            const parent = this.values[i]
+            const childOne = this.values[(2 * i) + 1]
+            const childTwo = this.values[(2 * i) + 2]
+
+            if (this.values.length === 2 && parent.priority > childOne.priority) {
+                this.values[0] = childOne
+                this.values[1] = parent
+                break
+            } else if (this.values.length === 2) {
+                break
+            }
+
+            if (childOne && childTwo) {
+                if (parent.priority > childOne.priority && childOne.priority < childTwo.priority) {
+                    this.values[i] = childOne
+                    this.values[(2 * i) + 1] = parent
+                    i = (2 * i) + 1
+                } else if (parent.priority > childTwo.priority && childOne.priority > childTwo.priority) {
+                    this.values[i] = childTwo
+                    this.values[(2 * i) + 2] = parent
+                    i = (2 * i) + 2
+                } else {
+                    break
+                }
+            } else {
+                break
+            }
+        }
+
+        return min
+    }
 }
 
 
