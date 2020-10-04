@@ -2876,3 +2876,28 @@ mbh.insert(18)
 mbh.insert(27)
 mbh.insert(12)
 mbh.insert(33)
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Hashing Function
+// 30. Implement a hashing function 
+
+class HashTable {
+    constructor(length) {
+        this.length = length
+        this.array = Array.apply(null, new Array(length)).map(() => new Array())
+    }
+
+
+}
+
+
+let hash = new HashTable(100)
+hash.set("pink", "#00ff12")
+hash.set("blue", "#008080")
+hash.set("pine", "#01796f")
+hash.set("pigl", "yeeer")
