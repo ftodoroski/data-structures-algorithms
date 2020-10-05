@@ -2892,6 +2892,16 @@ class HashTable {
         this.array = Array.apply(null, new Array(length)).map(() => new Array())
     }
 
+    // Works only on strings / Not a good way because of Time Complexity is not O(1)
+    _hash(string) {
+        let charCount = 0
+        let primeNum = 43
+        for (const char of string) {
+            charCount += (char.charCodeAt(0) * primeNum)
+        }
+
+        return charCount % this.length
+    }
 
 }
 
