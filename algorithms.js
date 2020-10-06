@@ -2903,6 +2903,28 @@ class HashTable {
         return charCount % this.length
     }
 
+    set(key, value) {
+        let index = this._hash(key)
+
+        if (!(this.array[index].length)) {
+            this.array[index].push([key, value])
+        } else {
+            let i = 0
+            while (i < this.array[index].length) {
+                let pair = this.array[index][i]
+
+                if (pair[0] === key) {
+                    pair[1] = value
+                    return
+                }
+
+                i++
+            }
+
+            this.array[index].push([key, value])
+        }
+    }
+
 }
 
 
