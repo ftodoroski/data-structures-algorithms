@@ -2925,6 +2925,27 @@ class HashTable {
         }
     }
 
+
+    get(key) {
+        let index = this._hash(key)
+
+        if (this.array[index].length === 1) {
+            return this.array[index][0][1]
+        } else {
+            let i = 0
+            while (i < this.array[index].length) {
+                let pair = this.array[index][i]
+                if (pair[0] === key) {
+                    return pair[1]
+                }
+
+                i++
+            }
+
+            return
+        }
+    }
+
 }
 
 
