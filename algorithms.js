@@ -2946,6 +2946,27 @@ class HashTable {
         }
     }
 
+
+    del(key) {
+        let index = this._hash(key)
+
+        if (this.array[index].length === 1) {
+            this.array[index] = []
+        } else {
+            let i = 0
+            while (i < this.array[index].length) {
+                let pair = this.array[index][i]
+                if (pair[0] === key) {
+                    return this.array[index].splice(i, 1)
+                }
+
+                i++
+            }
+
+            return
+        }
+    }
+
 }
 
 
