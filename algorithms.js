@@ -2967,6 +2967,32 @@ class HashTable {
         }
     }
 
+
+    keys() {
+        let keys = []
+
+        let i = 0
+        while (i < this.array.length) {
+            let pairs = this.array[i]
+
+            if (pairs.length === 1) {
+                keys.push(pairs[0][0])
+            } else {
+                let i = 0
+                while (i < pairs.length) {
+                    let pair = pairs[i]
+                    keys.push(pair[0])
+
+                    i++
+                }
+            }
+
+            i++
+        }
+
+        return keys
+    }
+
 }
 
 
