@@ -2925,7 +2925,6 @@ class HashTable {
         }
     }
 
-
     get(key) {
         let index = this._hash(key)
 
@@ -2946,7 +2945,6 @@ class HashTable {
         }
     }
 
-
     del(key) {
         let index = this._hash(key)
 
@@ -2966,7 +2964,6 @@ class HashTable {
             return
         }
     }
-
 
     keys() {
         let keys = []
@@ -2993,6 +2990,30 @@ class HashTable {
         return keys
     }
 
+    values() {
+        let values = []
+
+        let i = 0
+        while (i < this.array.length) {
+            let pairs = this.array[i]
+
+            if (pairs.length === 1) {
+                values.push(pairs[0][1])
+            } else {
+                let i = 0
+                while (i < pairs.length) {
+                    let pair = pairs[i]
+                    values.push(pair[1])
+
+                    i++
+                }
+            }
+
+            i++
+        }
+
+        return [...new Set(values)]
+    }
 }
 
 
