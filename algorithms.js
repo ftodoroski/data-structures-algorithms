@@ -3022,3 +3022,38 @@ hash.set("pink", "#00ff12")
 hash.set("blue", "#008080")
 hash.set("pine", "#01796f")
 hash.set("pigl", "yeeer")
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Undirected Graph - Adjacency List 
+// 31. Implement a undirected graph that is an adjacency list
+//          We use the adjacecyList to store the edges/relationship between the vertexs
+            // A -> B and B -> A
+            // 2 way connection 
+
+class Graph {
+    constructor() {
+        this.adjacencyList = {}
+    }
+
+}
+
+// // addVertex
+//     //   - adds a key to the adjacency list with the name of the vertex/node and sets its value to be an empty array
+//     //   - We add a vertex before we add an edge
+
+// // Edge     ->    connection
+
+// // removeVertex - You dont ussually remove a vertex just sever the edges which will just make it empty 
+
+let graph = new Graph()
+graph.addEdge("Dallas", "Tokyo");
+graph.addEdge("Dallas", "Aspen");
+graph.addEdge("Hong Kong", "Tokyo");
+graph.addEdge("Hong Kong", "Dallas");
+graph.addEdge("Los Angeles", "Hong Kong");
+graph.addEdge("Los Angeles", "Aspen");
