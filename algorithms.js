@@ -3044,6 +3044,22 @@ class Graph {
         if (!(this.adjacencyList[vertex])) this.adjacencyList[vertex] = []
         return this.adjacencyList
     }
+
+    addEdge(vertex1, vertex2) {
+        if (this.adjacencyList[vertex1]) {
+            this.adjacencyList[vertex1].push(vertex2)
+        } else {
+            this.adjacencyList[vertex1] = []
+            this.adjacencyList[vertex1].push(vertex2)
+        }
+
+        if (this.adjacencyList[vertex2]) {
+            this.adjacencyList[vertex2].push(vertex1)
+        } else {
+            this.adjacencyList[vertex2] = []
+            this.adjacencyList[vertex2].push(vertex1)
+        }
+    }
 }
 
 // // addVertex
