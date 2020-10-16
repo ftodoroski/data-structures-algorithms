@@ -3095,3 +3095,47 @@ graph.addEdge("Hong Kong", "Tokyo");
 graph.addEdge("Hong Kong", "Dallas");
 graph.addEdge("Los Angeles", "Hong Kong");
 graph.addEdge("Los Angeles", "Aspen");
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Undirected Graph - Adjacency List - DFS + BFS
+// 32. Implement a undirected graph that is an adjacency list that has a DFS method
+
+class Graph {
+    constructor() {
+        this.adjacencyList = {}
+    }
+
+}
+
+
+let graph = new Graph()
+graph.addEdge("A", "B")
+graph.addEdge("A", "C")
+graph.addEdge("B", "D")
+graph.addEdge("C", "E")
+graph.addEdge("D", "E")
+graph.addEdge("D", "F")
+graph.addEdge("E", "F")
+
+// -----> Using the .bind, and  Immediately-Invoked Function Expression
+// depthFirstRecursive(start, result = [], visited = {}) {
+//     (function dfs(vertex) {
+//         if (!vertex) return null;
+//         visited[vertex] = true;
+//         result.push(vertex);
+//         this.adjacencyList[vertex].forEach(neighbor => {
+//             if (!visited[neighbor]) return dfs.call(this, neighbor)
+//         });
+//     }).bind(this)(start);
+//     return result;
+// }
+
+
+// DFSIteratively using a stack
+
+// BFS using a queue
