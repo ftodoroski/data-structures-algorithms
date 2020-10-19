@@ -3131,6 +3131,16 @@ class Graph {
         }
     }
 
+    removeEdge(vertex1, vertex2) {
+        this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
+            v => v !== vertex2
+        )
+
+        this.adjacencyList[vertex2] = this.adjacencyList[vertex1].filter(
+            v => v !== vertex1
+        )
+    }
+
 }
 
 
