@@ -3141,6 +3141,14 @@ class Graph {
         )
     }
 
+
+    removeVertex(vertex) {
+        let graphLocations = Object.keys(this.adjacencyList)
+        graphLocations.forEach(
+            location => this.removeEdge(location, vertex)
+        )
+        delete this.adjacencyList[vertex]
+    }
 }
 
 
