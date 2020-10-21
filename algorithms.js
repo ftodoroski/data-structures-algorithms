@@ -3149,6 +3149,32 @@ class Graph {
         )
         delete this.adjacencyList[vertex]
     }
+
+
+    DFSRecursive(node) {
+        let visited = {}
+
+        let traverse = vertex => {
+            visited[vertex] = vertex
+
+            let i = 0
+            while (i < this.adjacencyList[vertex].length) {
+                let edge = this.adjacencyList[vertex][i]
+                if (!(visited[edge])) {
+                    traverse(edge)
+                }
+
+                i++
+
+            }
+        }
+        if (this.adjacencyList[node]) {
+            traverse(node)
+        }
+
+        return [...Object.keys(visited)]
+    }
+
 }
 
 
