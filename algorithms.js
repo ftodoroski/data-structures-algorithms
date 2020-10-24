@@ -3244,3 +3244,37 @@ graph.addEdge("E", "F")
 // DFSIteratively using a stack
 
 // BFS using a queue
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// I did not write this Learn from it
+
+// Bloomberg Phone Screen - Alien Dictionary
+// 33. Given a special alphabet (alien dictionary?) sort a list of words in ascedning order alphabetically:
+
+// alphabet: "a", "b", "c", "ch", "d", "dd", "e", "f", "ff", "g", "ng", "h", "i", "l", "ll", "m", "n", "o", "p", "ph", "r", "rh", "s", "t", "th", "u", "w", "y"
+
+// Input: "dd r",  "n a h", "d e a", "dd", "ng a h"
+// Output: "dea", "dd", "ddr", "ngah", "nah"
+
+
+const comparator = (a, b, alphabetSet) => {
+    if (a === b) return 0;
+
+    a = a.split(' '), b = b.split(' ');
+
+    for (let i = 0; i < Math.min(a.length, b.length); i++) {
+        const aPos = alphabetSet[a[i]], bPos = alphabetSet[b[i]] * 1;
+        if (aPos < bPos) return -1;
+        if (aPos > bPos) return 1;
+    }
+
+    return a.length < b.length ? -1 : 1;
+}
+
+
+
