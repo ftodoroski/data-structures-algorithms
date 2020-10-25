@@ -3276,5 +3276,20 @@ const comparator = (a, b, alphabetSet) => {
     return a.length < b.length ? -1 : 1;
 }
 
+const customSort = (words, alphabet) => {
+    const alphabetSet = {};
+
+    for (let i = 0; i < alphabet.length; i++) {
+        alphabetSet[alphabet[i]] = i;
+    }
+
+    words.sort((a, b) => comparator(a, b, alphabetSet));
+
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i].split(' ').join('');
+    }
+
+    return words;
+}
 
 
