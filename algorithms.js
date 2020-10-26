@@ -3292,4 +3292,21 @@ const customSort = (words, alphabet) => {
     return words;
 }
 
+// // testing the given test case
+(function main() {
+    const alpha = ["a", "b", "c", "ch", "d", "dd", "e", "f", "ff", "g", "ng", "h", "i", "l", "ll", "m", "n", "o", "p", "ph", "r", "rh", "s", "t", "th", "u", "w", "y"];
+
+    const input = ["dd r", "n a h", "d e a", "dd", "ng a h"];
+    const expected = ["dea", "dd", "ddr", "ngah", "nah"]
+    const output = customSort(input, alpha)
+
+    console.log('Expected: ', expected)
+    console.log('Output: ', output);
+
+    for (let i = 0; i < input.length; i++) {
+        if (expected[i] !== output[i]) return console.log('Incorrect');
+    }
+
+    console.log('Correct');
+}());
 
