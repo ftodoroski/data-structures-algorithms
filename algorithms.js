@@ -3310,3 +3310,50 @@ const customSort = (words, alphabet) => {
     console.log('Correct');
 }());
 
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Undirected Weighted Graph
+// 33. Implement an undirected weighted graph
+
+class WeightedGraph {
+    constructor() {
+        this.adjacencyList = {};
+    }
+
+}
+
+
+var graph = new WeightedGraph()
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
+
+graph.addEdge("A", "B", 4);
+graph.addEdge("A", "C", 2);
+graph.addEdge("B", "E", 3);
+graph.addEdge("C", "D", 2);
+graph.addEdge("C", "F", 4);
+graph.addEdge("D", "E", 3);
+graph.addEdge("D", "F", 1);
+graph.addEdge("E", "F", 1);
+
+graph.Dijkstra("A", "E");
+
+
+// We add an object to the thing we push 
+//         - This lets us store more information
+//         - Allways know that when you need multiple data points 
+//           that you will need an object
+
+// Break down Dijkstras Algorithm into Components 
+// Its complex - best thing is to see the moving parts 
+    // Count the Components 
+    // Understand the Components 
+    // Write it Pseudo 
+    // Write and write it again until you understand it 
