@@ -3377,6 +3377,13 @@ class WeightedGraph {
     }
 }
 
+class PriorityQueue {
+    constructor() {
+        this.values = [];
+    }
+
+}
+
 
 var graph = new WeightedGraph()
 graph.addVertex("A");
