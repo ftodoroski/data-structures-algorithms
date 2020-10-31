@@ -3382,6 +3382,11 @@ class PriorityQueue {
         this.values = [];
     }
 
+    enqueue(val, priority) {
+        let newNode = new Node(val, priority);
+        this.values.push(newNode);
+        this.bubbleUp();
+    }
 }
 
 
