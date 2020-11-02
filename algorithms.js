@@ -3400,6 +3400,16 @@ class PriorityQueue {
             idx = parentIdx;
         }
     }
+
+    dequeue() {
+        const min = this.values[0];
+        const end = this.values.pop();
+        if (this.values.length > 0) {
+            this.values[0] = end;
+            this.sinkDown();
+        }
+        return min;
+    }
 }
 
 
