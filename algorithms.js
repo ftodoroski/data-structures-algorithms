@@ -3483,3 +3483,17 @@ graph.Dijkstra("A", "E");
     // Understand the Components 
     // Write it Pseudo 
     // Write and write it again until you understand it 
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Fib Sequence
+// 2. Implement fibonacci sequence
+
+// // Not Optimized - Time Complexity O(2^n)
+function fib(n) {
+    if (n <= 2) return 1
+    return fib(n - 1) + fib(n - 2)
+}
