@@ -3314,6 +3314,7 @@ const customSort = (words, alphabet) => {
 
 
 
+
 // ******************************************************************************************************************************************************************
 // Undirected Weighted Graph
 // 33. Implement an undirected weighted graph
@@ -3488,6 +3489,7 @@ graph.Dijkstra("A", "E");
 
 
 
+
 // ******************************************************************************************************************************************************************
 // Fib Sequence
 // 2. Implement fibonacci sequence
@@ -3507,3 +3509,38 @@ function fib(n, memo={}) {
     memo[n] = res
     return res
 }
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Reverse a String
+// --- Directions
+// Given a string, return a new string with the reversed
+// order of characters
+// --- Examples
+//   reverse('apple') === 'leppa'
+//   reverse('hello') === 'olleh'
+//   reverse('Greetings!') === '!sgniteerG'
+
+function reverse(str) {
+    let reversedStr = ""
+    for (let i = str.length - 1; i >= 0; i--) {
+        const char = str[i]
+        reversedStr += char
+    }
+
+    return reversedStr
+}
+
+// Time Complexity - O(n)
+
+// 2nd Solution 
+//  using the Array.prototype.reverse method
+
+// Learned
+    // - ES6 for..of loop
+    // - Tool: debugger statement - better to use it on the browser
+
