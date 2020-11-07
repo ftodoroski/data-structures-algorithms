@@ -3544,3 +3544,27 @@ function reverse(str) {
     // - ES6 for..of loop
     // - Tool: debugger statement - better to use it on the browser
 
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Polindrome
+// --- Directions
+// Given a string, return true if the string is a palindrome
+// or false if it is not.  Palindromes are strings that
+// form the same word if it is reversed. *Do* include spaces
+// and punctuation in determining if the string is a palindrome.
+// --- Examples:
+//   palindrome("abba") === true
+//   palindrome("abcdefg") === false
+
+function palindrome(str) {
+    let reversedStr = ""
+    for (const char of str) {
+        reversedStr = char + reversedStr
+    }
+
+    return str === reversedStr
+}
