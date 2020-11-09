@@ -3592,3 +3592,45 @@ function reverseInt(n) {
     let stringified = n.toString().split("").reverse().join("")
     return parseInt(stringified) * Math.sign(n)
 }
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Insertion Sort 
+// Implement Insertion Sort 
+
+function insertionSort(array) {
+    let current = 0
+
+    while (current < array.length) {
+        let next = current + 1
+
+        while (next !== undefined && next < array.length) {
+            if (array[current] > array[next]) {
+                swap(current, next, array)
+            }
+
+            next++
+        }
+
+        current++ 
+    }
+
+    return array
+}
+
+let array = [4, 1, 5, 3]
+let array = [10, 2, 14, 4, 7, 6, 100, 1]
+let array = [2]
+console.log(insertionSort(array))
+
+// This was correct in which in the way it was behaving 
+    // Didn't understand it intialaly though i made something wrong but it was fine
+
+// What I did here was to reduce the problem 
+
+// Time Compexity:      O(n)
+// Space Compelxity:    O(1)
