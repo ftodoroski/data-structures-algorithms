@@ -3622,6 +3622,13 @@ function insertionSort(array) {
     return array
 }
 
+function swap(idx1, idx2, array) {
+    let temp = array[idx1]
+    array[idx1] = array[idx2]
+    array[idx2] = temp
+}
+
+
 let array = [4, 1, 5, 3]
 let array = [10, 2, 14, 4, 7, 6, 100, 1]
 let array = [2]
