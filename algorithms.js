@@ -3683,3 +3683,42 @@ function levenshteinDistance(str1, str2) {
     }
     return edits[str2.length][str1.length]
 }
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Find Closest Value in BST
+
+// Write a function that takes in a Binary Search Tree and a target integer value and returns 
+// the closest value to the target value containted in the BST
+
+// You can assume that there will only be one closest value 
+
+// Each BST node has an integer value, a left child node and right child node. A node is said to be valid BST
+// node if and only if it satisfies the BST property. Its value is strictly greater than the values of every 
+// node to its left. its value is less than or equal to the values of every node to its right. and its children 
+// nodes are either valid BST nodes themselves or None // null
+
+function findClosestValueInBst(tree, target) {
+    let node = tree
+    let closest = node.value
+
+    while (node != null) {
+        if (Math.abs(target - node.value) < Math.abs(target - closest)) {
+            closest = node.value
+        }
+
+        if (target > node.value) {
+            node = node.right
+        } else if (target < node.value) {
+            node = node.left
+        } else {
+            break
+        }
+    }
+
+    return closest
+}
