@@ -3810,3 +3810,11 @@ function constructMinHeightBST(array, bst, startIdx, endIdx) {
     constructMinHeightBST(array, bst, midIdx + 1, endIdx)
     return bst
 }
+
+class BST {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
