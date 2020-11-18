@@ -3858,3 +3858,10 @@ function invertBinaryTree(tree) {
     invertBinaryTree(tree.right)
 }
 
+function swapLeftAndRight(tree) {
+    let tempLeft = tree.left
+    tree.left = tree.right
+    tree.right = tempLeft
+}
+
+
