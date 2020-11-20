@@ -3864,4 +3864,10 @@ function swapLeftAndRight(tree) {
     tree.right = tempLeft
 }
 
-
+class BinaryTree {
+    constructor(value) {
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
