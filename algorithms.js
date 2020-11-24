@@ -4035,5 +4035,14 @@ function hasSingleCycle(array) {
     return currentIdx === 0
 }
 
+<<<<<<< HEAD
+=======
+function getNextIdx(currentIdx, array) {
+    const jump = array[currentIdx]
+    const nextIdx = (currentIdx + jump) % array.length
+    return nextIdx >= 0 ? nextIdx : nextIdx + array.length
+}
+
+>>>>>>> 1d50e92fbc5186c9ee5cb5fd998ea4f2e846c07f
 let array = [2, 3, 1, -4, -4, 2]
 hasSingleCycle(array) // true
