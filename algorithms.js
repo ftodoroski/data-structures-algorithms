@@ -4035,14 +4035,55 @@ function hasSingleCycle(array) {
     return currentIdx === 0
 }
 
-<<<<<<< HEAD
-=======
 function getNextIdx(currentIdx, array) {
     const jump = array[currentIdx]
     const nextIdx = (currentIdx + jump) % array.length
     return nextIdx >= 0 ? nextIdx : nextIdx + array.length
 }
 
->>>>>>> 1d50e92fbc5186c9ee5cb5fd998ea4f2e846c07f
 let array = [2, 3, 1, -4, -4, 2]
 hasSingleCycle(array) // true
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// River Size 
+
+// You're given a two-dimensional array (a matrix) of potentially unequal height
+// and width containing only 0s and 1s.Each 0 represents land, and each 1 represents part of a
+// river.A river consists of any number of 1s that are either
+// horizontally or vertically adjacent(but not diagonally adjacent).The number
+// of adjacent 1s forming a river determine its size.
+
+// Note that a river can twist.In other words, it doesn't have to be a straight
+// vertical line or a straight horizontal line; it can be L - shaped, for example.
+
+// Write a function that returns an array of the sizes of all rivers represented
+// in the input matrix.The sizes don't need to be in any particular order.
+
+function riverSizes(matrix) {
+    const sizes = []
+    const visited = matrix.map(row => row.map(value => false))
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            if (visited[i][j]) continue;
+            traverseNode(i, j, matrix, visited, sizes)
+        }
+    }
+
+    return sizes
+}
+
+
+riverSizes(matrix) // [1, 2, 2, 2, 5]
+
+let matrix = [
+        [1, 0, 0, 1, 0],
+        [1, 0, 1, 0, 0],
+        [0, 0, 1, 0, 1],
+        [1, 0, 1, 0, 1],
+        [1, 0, 1, 1, 0]
+    ]
