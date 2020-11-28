@@ -4100,6 +4100,15 @@ function traverseNode(i, j, matrix, visited, sizes) {
     if (currentRiverSize > 0) sizes.push(currentRiverSize)
 }
 
+function getUnvisitedNeighbors(i, j, matrix, visited) {
+    const unvisitiedNeighbors = []
+    if (i > 0 && !visited[i - 1][j]) unvisitiedNeighbors.push([i - 1, j])
+    if (i < matrix.length - 1 && !visited[i + 1][j]) unvisitiedNeighbors.push([i + 1, j])
+    if (j > 0 && !visited[i][j - 1]) unvisitiedNeighbors.push([i, j - 1])
+    if (j < matrix[0].length - 1 && !visited[i][j + 1]) unvisitiedNeighbors.push([i, j + 1])
+    return unvisitiedNeighbors
+}
+
 riverSizes(matrix) // [1, 2, 2, 2, 5]
 
 let matrix = [
