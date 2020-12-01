@@ -4158,3 +4158,14 @@ function getYoungestCommonAncestor(topAncestor, descendantOne, descendantTwo) {
     }
 }
 
+function getDescendantDepth(descendant, topAncestor) {
+    let depth = 0
+
+    while (descendant !== topAncestor) {
+        depth++
+        descendant = descendant.ancestor
+    }
+
+    return depth
+}
+
