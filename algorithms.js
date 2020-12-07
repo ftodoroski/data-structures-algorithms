@@ -4241,4 +4241,14 @@ class MinHeap {
             }
         }
     }
+
+    // O(log(n)) time | O(1) space
+    siftUp(currentIdx, heap) {
+        let parentIdx = Math.floor((currentIdx - 1) / 2)
+        while (currentIdx > 0 && heap[currentIdx] < heap[parentIdx]) {
+            this.swap(currentIdx, parentIdx, heap)
+            currentIdx = parentIdx
+            parentIdx = Math.floor((currentIdx - 1) / 2)
+        }
+    }
 }
