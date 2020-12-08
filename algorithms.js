@@ -4257,3 +4257,32 @@ class MinHeap {
         return this.heap[0]
     }
 }
+
+
+
+
+
+
+// ******************************************************************************************************************************************************************
+// Implemet Merge Sort 
+
+// O(n log n) time | O(n) space
+const mergeSort = array => {
+    if (array.length <= 1) return array
+
+    const middle = Math.floor(array.length / 2)
+    const leftArray = array.slice(0, middle)
+    const rightArray = array.slice(middle)
+
+
+    return mergeSortedArrays(
+        mergeSort(leftArray),
+        mergeSort(rightArray)
+    )
+}
+
+
+// There was a App Academy Merge Sort Implementation
+// that sorts Ascending or Descending 
+
+
