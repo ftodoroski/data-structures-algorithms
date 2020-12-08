@@ -4251,4 +4251,9 @@ class MinHeap {
             parentIdx = Math.floor((currentIdx - 1) / 2)
         }
     }
+
+    // O(1) time | O(1) space
+    peek() {
+        return this.heap[0]
+    }
 }
