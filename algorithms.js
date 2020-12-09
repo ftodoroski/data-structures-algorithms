@@ -4281,6 +4281,19 @@ const mergeSort = array => {
     )
 }
 
+const mergeSortedArrays = (left, right) => {
+    const sortedArray = []
+
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            sortedArray.push(left.shift())
+        } else {
+            sortedArray.push(right.shift())
+        }
+    }
+
+    return [...sortedArray, ...left, ...right]
+}
 
 // There was a App Academy Merge Sort Implementation
 // that sorts Ascending or Descending 
