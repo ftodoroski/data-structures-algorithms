@@ -4295,6 +4295,14 @@ const mergeSortedArrays = (left, right) => {
     return [...sortedArray, ...left, ...right]
 }
 
+(function test() {
+    console.log(mergeSort([43, 56, 23, 89, 88, 90, 99, 652]))
+    console.log(mergeSort([1]))
+    console.log(mergeSort([]))
+    console.log(mergeSort([2, 115, 150, 91, 138, 64, 78, 143, 23, 91, 107, 145, 7, 144, 39, 55]))
+    console.log(mergeSort([10, 5, 5, 55, 1, 1, 2]))
+})()
+
 // There was a App Academy Merge Sort Implementation
 // that sorts Ascending or Descending 
 
